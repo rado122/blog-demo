@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+
+{% block body %}
+    <div class="container">
+        <h1>{{post.title}}</h1>
+
+        <p class="lead">
+            by {{post.author.username}}
+        </p>
+
+        <hr>
+
+        <p><span class="glyphicon glyphicon-time"></span> Posted on {{post.created_at}}</p>
+
+        <hr>
+        
+        <img class="img-responsive" src="{{post.image.url}}" alt="">
+
+        <hr>
+        
+        {{post.content|safe}}
+        
+        <hr>
+    </div>
+{% endblock body %}

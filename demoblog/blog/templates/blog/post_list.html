@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %}
+{% block body %}
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+                <h1 class="page-header">
+                    Welcome to my Demo Blog!
+                </h1>
+
+                {% for post in posts %}
+                <h2>
+                    <a href="{% url 'post' post.id %}">{{post.title}}</a>
+                </h2>
+                <p class="lead">
+                    by {{post.author.username}}
+                </p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on {{post.created_at}}</p>
+                <hr>
+                <img class="img-responsive" src="{{post.image.url}}" alt="">
+                <hr>
+                {% endfor %}
+            </div>
+
+    </div>
+    <!-- /.container -->
+{% endblock body %}
